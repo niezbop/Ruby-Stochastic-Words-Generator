@@ -19,11 +19,11 @@ module StochasticWords
           table.string :value, limit: 1, null: false
         end
 
-        create_table :n_gram_character_associations, force: :cascade, id: false do |table|
+        create_table :n_gram_character_associations, force: :cascade do |table|
           table.integer :count, default: 0, null: false
           table.references :n_gram, index: true
           table.references :character, index: true
-          table.index [:n_gram, :character], name: "index_n_gram_character_associations_uniqueness", unique: true
+          table.index [:n_gram_id, :character_id], name: "index_n_gram_character_associations_uniqueness", unique: true
         end
       end
     end
