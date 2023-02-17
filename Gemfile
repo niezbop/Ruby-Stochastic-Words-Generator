@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 
 group :persistence do
   gem 'activerecord'
+  gem 'yaml'
   gem 'sqlite3'
 end
 
