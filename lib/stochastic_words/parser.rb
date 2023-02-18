@@ -1,8 +1,7 @@
+require_relative 'special_characters'
+
 module StochasticWords
   class Parser
-    INITIAL_CHARACTER = nil.freeze
-    FINISHING_CHARACTER = "\004".freeze
-
     attr_reader :gram_size
 
     def initialize(gram_size:)
@@ -11,7 +10,7 @@ module StochasticWords
 
     def parse(provider, weight: 1)
       provider.each_word do |word, frequency|
-        state = [ INITIAL_CHARACTER ] * gram_size
+        state = [ SpecialCharacters::INITIAL_CHARACTER ] * gram_size
 
         (0..word.length() - 1).each do |character_index|
           current_character_value = word[character_index]
@@ -23,7 +22,7 @@ module StochasticWords
         end
 
         # Finish the word
-        count_association(state, FINISHING_CHARACTER, weight * frequency)
+        count_association(state, SpecialCharacters::FINISHING_CHARACTER, weight * frequency)
       end
     end
 
