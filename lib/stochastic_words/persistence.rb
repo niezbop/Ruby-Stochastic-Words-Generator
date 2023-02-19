@@ -1,5 +1,3 @@
-require 'yaml'
-
 module StochasticWords
   module Persistence
     def self.setup(persist_to: ':memory:')
@@ -12,7 +10,7 @@ module StochasticWords
 
       ActiveRecord::Schema.define do
         create_table :n_grams, force: :cascade do |table|
-          table.text :items, default: [].to_yaml, null: false
+          table.string :items, default: '', null: false
         end
     
         create_table :characters, force: :cascade do |table|
