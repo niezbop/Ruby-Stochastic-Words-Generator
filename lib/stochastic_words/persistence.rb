@@ -7,7 +7,9 @@ module StochasticWords
         adapter: 'sqlite3',
         database: persist_to
       )
+    end
 
+    def self.define_tables
       ActiveRecord::Schema.define do
         create_table :n_grams, force: :cascade do |table|
           table.string :items, default: '', null: false
