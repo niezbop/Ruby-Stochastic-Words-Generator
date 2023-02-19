@@ -1,3 +1,4 @@
+require_relative 'stochastic_words/generator'
 require_relative 'stochastic_words/models'
 require_relative 'stochastic_words/parser'
 require_relative 'stochastic_words/persistence'

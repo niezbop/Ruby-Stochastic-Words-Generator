@@ -18,12 +18,21 @@ module StochasticWords
       end
     end
 
+    class << self
+      def find_by_items(items)
+        where('items = ?', ItemList.dump(items)).first
+      end
+
+      def find_or_initialize_by_items(items)
+        find_by_items(items) or new(items: items)
+      end
+    end
+
     has_many :n_gram_character_associations
     has_many :following_characters, through: :n_gram_character_associations, source: :character
 
     validates :items,
       presence: true,
-      allow_blank: true,
       uniqueness: true
     serialize :items, ItemList
 

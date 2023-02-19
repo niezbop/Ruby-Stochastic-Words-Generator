@@ -30,7 +30,9 @@ module StochasticWords
 
     def count_association(state, character_value, weight)
       # Find or create the appropriate entries in the database
-      n_gram = NGram.find_or_create_by!(items: state)
+      n_gram = NGram.find_or_initialize_by_items(state)
+      n_gram.save! unless n_gram.persisted?
+
       character = Character.find_or_create_by!(value: character_value)
 
       association = NGramCharacterAssociation.find_or_create_by!(n_gram: n_gram, character: character)
