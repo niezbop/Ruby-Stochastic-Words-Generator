@@ -31,6 +31,10 @@ module StochasticWords
       items.count
     end
 
+    def to_predicate
+      NGram.where('items LIKE ?', "%#{ItemList.dump(items)}")
+    end
+
     alias_method :count, :n
   end
 end
