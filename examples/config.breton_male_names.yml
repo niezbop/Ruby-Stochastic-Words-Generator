@@ -1,0 +1,15 @@
+---
+# seed: 
+flush: true
+persistence:
+  persist_to: ':memory:'
+parser:
+  gram_size: 3
+providers:
+  - name: HTTPProvider
+    weight: 1
+    configuration:
+      url: 'https://en.wiktionary.org/wiki/Appendix:Breton_given_names'
+      xpath: "//div[@class='derivedterms ul-column-count' and preceding-sibling::h1[./span[@id='Male']] and following-sibling::h1[./span[@id='Female']]]/dl/dd/a"
+generator:
+  gram_size: 3

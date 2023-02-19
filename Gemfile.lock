@@ -26,6 +26,7 @@ GEM
     sqlite3 (1.6.0-x86_64-darwin)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    yaml (0.2.1)
 
 PLATFORMS
   x86_64-darwin-21
@@ -35,6 +36,7 @@ DEPENDENCIES
   httparty
   nokogiri
   sqlite3
+  yaml
 
 RUBY VERSION
    ruby 2.7.4p191

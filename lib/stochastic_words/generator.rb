@@ -2,10 +2,11 @@ require_relative 'special_characters'
 
 module StochasticWords
   class Generator
-    attr_reader :gram_size
+    attr_reader :gram_size, :random
 
-    def initialize(gram_size:)
+    def initialize(gram_size:, random: nil)
       @gram_size = gram_size
+      @random = random || Random.new
     end
 
     def generate_word
@@ -13,7 +14,7 @@ module StochasticWords
       word = ''
 
       loop do
-        character = GetCharacterForNGram.run(n_gram).value
+        character = GetCharacterForNGram.run(n_gram, random).value
         break if character == SpecialCharacters::FINISHING_CHARACTER
 
         word += character

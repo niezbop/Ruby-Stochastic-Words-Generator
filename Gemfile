@@ -4,6 +4,8 @@ ruby '2.7.4'
 
 source 'https://rubygems.org'
 
+gem 'yaml'
+
 group :persistence do
   gem 'activerecord'
   gem 'sqlite3'

@@ -29,5 +29,9 @@ module StochasticWords
         end
       end
     end
+
+    def self.empty?
+      !ActiveRecord::Base.connection.tables.any?
+    end
   end
 end
