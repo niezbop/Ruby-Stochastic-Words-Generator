@@ -21,7 +21,10 @@ module StochasticWords
     has_many :n_gram_character_associations
     has_many :following_characters, through: :n_gram_character_associations, source: :character
 
-    validates :items, presence: true
+    validates :items,
+      presence: true,
+      allow_blank: true,
+      uniqueness: true
     serialize :items, ItemList
 
     def n

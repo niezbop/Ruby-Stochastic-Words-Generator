@@ -6,6 +6,7 @@ module StochasticWords
     validates :value,
       presence: true,
       length: { is: 1 },
-      allow_blank: true
+      allow_blank: true,
+      uniqueness: true
   end
 end
