@@ -16,11 +16,16 @@ Gem::Specification.new do |spec|
   spec.description = '' # TODO: add description
 
   spec.homepage    = 'https://github.com/niezbop/Ruby-Stochastic-Words-Generator'
-  spec.license     = '' # TODO: setup license
+  spec.license     = 'MIT'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
   spec.require_paths = ['lib']
-  # TODO: add dependencies
+
+  spec.add_dependency 'yaml'
+  spec.add_dependency 'activerecord'
+  spec.add_dependency 'sqlite3'
+  spec.add_dependency 'httparty'
+  spec.add_dependency 'nokogiri'
 end
