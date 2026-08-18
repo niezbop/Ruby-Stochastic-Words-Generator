@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'yaml'
-  spec.add_dependency 'activerecord'
+  spec.add_dependency 'activerecord', '~> 7.0.4'
   spec.add_dependency 'sqlite3', '~> 1.6.0'
   spec.add_dependency 'httparty'
   spec.add_dependency 'nokogiri'
